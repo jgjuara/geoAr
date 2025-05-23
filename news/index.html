@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">geoAr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -63,6 +63,22 @@
       <small>Source: <a href="https://github.com/PoliticaArgentina/geoAr/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.1.0" id="geoar-110">geoAr 1.1.0<a class="anchor" aria-label="anchor" href="#geoar-110"></a></h2>
+<div class="section level3">
+<h3 id="new-features-1-1-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-1-1-0"></a></h3>
+<ul><li>Added a suite of <code>post_*_bulk()</code> functions (<code>post_provincias_bulk()</code>, <code>post_departamentos_bulk()</code>, <code>post_municipios_bulk()</code>, <code>post_localidades_bulk()</code>, <code>post_localidades_censales_bulk()</code>, <code>post_asentamientos_bulk()</code>, <code>post_calles_bulk()</code>, <code>post_direcciones_bulk()</code>, <code>post_ubicacion_bulk()</code>) to allow for bulk queries to the corresponding <code>georef-ar-api</code> endpoints using the POST method. This enables sending multiple queries in a single API request.</li>
+<li>Each <code>post_*_bulk()</code> function includes enhanced input validation for the <code>queries_list</code> parameter, providing warnings for unrecognized parameter names within individual queries to guide correct usage.</li>
+<li>Added <code>get_geodata_dump()</code> function to download entire datasets (provincias, departamentos, etc.) in various formats (CSV, JSON, GeoJSON, NDJSON) directly from the API.</li>
+<li>The <code><a href="../reference/get_calles.html">get_calles()</a></code> function now exclusively handles GET requests; POST functionality for streets is managed by <code>post_calles_bulk()</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="fixes--improvements-1-1-0">Fixes &amp; Improvements<a class="anchor" aria-label="anchor" href="#fixes--improvements-1-1-0"></a></h3>
+<ul><li>The base API URL used by <code>R/georefar.R</code> functions has been updated from HTTP to HTTPS (<code>https://apis.datos.gob.ar/georef/api/</code>) for secure communication.</li>
+<li>Refactored the internal <code>post_endpoint()</code> function to correctly construct JSON bodies for POST requests and parse API responses, especially for bulk operations.</li>
+<li>Added comprehensive unit tests for input validation of all new <code>post_*_bulk()</code> functions and basic validation for <code>get_geodata_dump()</code>.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.0" id="geoar-100">geoAr 1.0.0<small>2024-03-03</small><a class="anchor" aria-label="anchor" href="#geoar-100"></a></h2>
 <p>Ready for CRAN re submission</p>
